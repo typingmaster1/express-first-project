@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10 text-black">
+            <form action="/create" method="post">
+                <input class="block w-full px-9 py-9 bg-white-900"  placeholder="Title" name="title" type="text"> <br> <br>
+                <textarea class="block w-full px-9 py-9 resize-none bg-red-900"  placeholder="Write your Task" name="details" ></textarea><br> <br>
+                <input class="  bg-blue-600 px-5 py-2 rounded" type="submit" value="Create Task"><br><br>
+            </form>
+        </div>
+<div class="tasks p-10">
+<% if(files.length >0){ %>
+<% files.forEach(function(val){ %>
+    <div class="task w-50 px-3 py-4 rounded-md bg-red-800">
+        <h1 class="text-black"><%= val %></h1>
+        <a class="text-blue-600" href="/file/<%= val %>">Read More</a>
+    </div>
+    
+<% }) %>
+<% } else{ %>
+<h3 class="text-blue-600 ">No task yet</h3>
+<% } %>
+</div>
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10 text-black">
+            <form action="/create" method="post">
+                <input class="block w-full px-9 py-9 bg-white-900" placeholder="Title" name="title" type="text"> <br> <br>
+                <textarea class="block w-full px-9 py-9 resize-none bg-red-900" placeholder="Write your Task" name="details"></textarea><br> <br>
+                <input class="bg-blue-600 px-5 py-2 rounded" type="submit" value="Create Task"><br><br>
+            </form>
+        </div>
+        <div class="tasks p-10">
+            <% if(files.length > 0) { %>
+                <% files.forEach(function(val) { %>
+                    <div class="task w-50 px-3 py-4 rounded-md bg-red-800">
+                        <h1 class="text-black"><%= val %></h1>
+                        <a class="text-blue-600" href="/file/<%= val %>">Read More</a>
+
+                        <!-- Delete Button -->
+                        <form action="/delete/<%= val %>" method="post" style="display:inline;">
+                            <button class="bg-red-600 text-white px-4 py-2 rounded" type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h3 class="text-blue-600">No task yet</h3>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
